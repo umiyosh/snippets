@@ -1,0 +1,377 @@
+snippet perl 
+	#!/usr/bin/env perl
+
+	use strict;
+	use warnings;
+	${1:#code}
+
+snippet strictwarnings
+	use strict;
+	use warnings;
+
+snippet sub
+	sub ${1:function_name} {
+		${2:# body...}
+	}
+
+snippet if
+	if (${1}) {
+		${2:# body...}
+	}
+
+snippet ife
+	if (${1}) {
+		${2:# body...}
+	} else {
+		${3:# else...}
+	}
+
+snippet ifee
+	if (${1}) {
+		${2:# body...}
+	} elsif (${3}) {
+		${4:# elsif...}
+	} else {
+		${5:# else...}
+	}
+
+snippet xif
+	${1:expression} if ${2:condition};
+
+snippet while
+abbr wh
+	while (${1}) {
+		${2:# body...}
+	}
+    
+snippet xwhile
+abbr xwh
+	${1:expression} while ${2:condition};
+
+snippet for
+	for (my $${1:var} = 0; $function_name < ${2:expression}; $function_name++) {
+		${3:# body...}
+	}
+    
+snippet fore
+	for ${2} (${1:expression}){
+		${3:# body...}
+	}
+
+snippet xfor
+	${1:expression} for @${2:array};
+
+snippet unless
+abbr un
+	unless (${1}) {
+		${2:# body...}
+	}
+
+snippet une
+abbr une
+	unless (${1}) {
+		${2:# body...}
+	} else { 
+        ${3:# body...}
+    }
+
+snippet xunless
+abbr xun
+	${1:expression} unless ${2:condition};
+
+snippet eval
+	eval {
+		${1:# do something risky...}
+	};
+	if ($@) {
+		${2:# handle failure...}
+	}
+
+#originals 
+snippet chomp
+    unless ($eol) { ($/) = ($eol) = /(\x0d?\x0a|\x0d)$/; }; chomp; 
+
+snippet     ddump
+abbr        ddu
+prev_word   '^'
+    print Dumper ${1:#valiable};
+    
+
+# Package
+snippet cl
+	package ${1:ClassName};
+	
+	use base qw(${2:ParentClass});
+	
+	sub new {
+		my $class = shift;
+		$class = ref $class || $class;
+		my $self = bless {}, $class;
+		$self;
+	}
+	
+	1;${3}
+# Read File
+snippet slurp
+	my $${1:var};
+	{ local $/ = undef; local *FILE; open FILE, "<${2:file}"; $function_name = <FILE>; close FILE }${3}
+
+# add snippets from http://blog.dealforest.net/2009/04/migrate-over-to-snipmate-from-snippetseeu/
+snippet dump
+	use Data::Dumper; 
+	${1}
+snippet say
+	print ${1:$var}, "\n";
+	${2}
+snippet self
+	my $self = shift;
+	${2}
+snippet data
+	my $data = do {
+		local $/;
+		<data>
+	};
+	${1}
+snippet argf
+	while ${2:record} (<${1:filehandle}>) {
+		unless ($eol) { ($/) = ($eol) = /(\x0d?\x0a|\x0d)$/; }; chomp ${3:record};
+		${4}
+	}
+	${5}
+snippet isa
+	if (blessed ${1:$var} and ${2:$var}->isa('${3:Class}')) {
+		${4}
+	}
+	${5}
+snippet readcsv
+	use IO::File;
+	use Text::CSV_XS;
+ 
+	my $fh = IO::File->new('${1:filename}') or die 'cannot open file.';
+	my $csv = Text::CSV_XS->new({ sep_char => "\t", binary => 1 });
+	until ($fh->eof) {
+		my $cols = $csv->getline($fh);
+		unless ($cols) {
+			warn $csv->error_diag;
+			next;
+		}
+		my (${2}) = @$cols;
+	}
+	$fh->close;
+	${3}
+ 
+#class-C3
+snippet next
+	$self->next::method(@_);
+	${1}
+snippet maybe
+	$self->maybe::next::method(@_);
+	${1}
+ 
+#Catalyst
+snippet debug
+	$c->log->debug('${1:[ debug ]}: '. ${2:$var});
+	${3}
+snippet warn
+	$c->log->warn('${1:[ warn ]}: '. ${2:$var});
+	${3}
+snippet dumper
+	$c->log->dumper('${1:[ dumper ]}: '. ${2:$var});
+	${3}
+snippet model
+	$c->model('${1:model}')
+	${2}
+snippet view
+	$c->view('${1:view}')
+	${2}
+snippet template
+	$c->view('View::TT')->template('${1:name}');
+	${2}
+snippet config
+	$c->config->{${1:name}}
+	${2}
+snippet controller
+	sub ${1:func} : ${2:Attribute} {
+		my ($self, $c) = @_;
+		${3}
+	}
+	${4}
+snippet begin
+	sub begin : Private {
+		my ($self, $c) = @_;
+		${1}
+		1;
+	}
+	${2}
+snippet auto
+	sub auto : Private {
+		my ($self, $c) = @_;
+		${1}
+		1;
+	}
+	${2}
+snippet detach
+	$c->detach('${1:name}');
+	${2}
+snippet forward
+	$c->forward('${1:name}');
+	${2}
+snippet stash
+	$c->stash->{${1:var}}${2}
+snippet flash
+	$c->flash->{${1:var}}${2}
+snippet session
+	$c->session->{${1:var}}${2}
+snippet sstash
+	$c->stash->{${1:var}} = ${2};
+	${3}
+snippet sflash
+	$c->flash->{${1:var}} = ${2};
+	${3}
+snippet ssession
+	$c->session->{${1:var}} = ${2};
+	${3}
+snippet rs
+	$c->model('DBIC::${1:Source}')
+	${2}
+snippet redirect
+	$c->res->redirect($c->uri_for('${1:uri}'));
+	${2}
+snippet param
+	$c->req->param('${1:param}')
+	${2}
+
+snippet encode
+	${4:scalar} = encode('${3:utput encoding}', decode('${2:input encoding}', ${1:scalar}));
+    
+snippet io
+    ${1:scalar} = IO::File->new( "${2:read/write} " . "${3:filepath}") or die "${4:message}";
+    ${5}
+
+snippet header
+	###############################################################################
+	# 名      称 ：${0:name}
+	# 機      能 ：${1:function}
+	# 備      考 ：${2:remarks}
+	# 制      限 ：${3:restrictions}
+	# TODO       ：${4:TODO}
+	# 作成年月日 ：${5:date}
+	###############################################################################
+
+snippet     getopt
+    use Getopt::Compact;
+snippet  getoptc
+	my $opts = Getopt::Compact->new(
+		name    => "$0",
+		modes   => [qw(verbose debug)],
+		version => $VERSION,
+		struct  => [
+			[ [qw(${1:c command})]     , qq(${2: usage}) , '=s' ] , 
+		]
+	);
+	my $options = $opts->opts;
+	for my $option ( keys %{$options} ) {
+		if ( !$option =~ /verbose|debug|help${3:ommision}/ ) {
+			if ( defined $option ) {
+				print "option:$option must be specify\n";
+				print $opts->usage();
+				die;
+			}
+		}
+	}
+
+#originals 
+snippet op
+	open (my ${1:filehandle} ,"${2:read/write}" , ${3:filepath}) or die "open error ${4:message} :$!\n";
+
+snippet csv
+    use Text::CSV_XS;
+    use Text::CSV::Simple;
+    sub make_csv_hash {
+        my $filename = shift @_;
+        my ($head);
+        my $tc = Text::CSV_XS->new({binary => 1, eol => "\r\n", always_quote => 1});
+        my $csv_parser = Text::CSV::Simple->new({
+            binary => 1, #日本語を通すため
+        });
+        open TS ,"< $filename" or die "csvrec open error";
+        $head=<TS>;
+        $tc->parse($head);
+        my @header_fields = $tc->fields;
+        close TS;
+        $csv_parser->field_map(@header_fields);
+        my @csvrec_list = $csv_parser->read_file("$filename");
+        shift @csvrec_list;
+        return \@csvrec_list,\@header_fields;
+    }
+
+    my ($${2:recbody}_csvrec,$${3:rechead}_header) = make_csv_hash(${1:csv.csv});
+
+snippet new
+    sub new {
+        my $class = shift;
+        $class = ref $class || $class;
+        my $self = bless {}, $class;
+        $self;
+    }
+
+snippet trueth-value
+    use constant TRUE  => 1;
+    use constant FALSE => 0;
+
+snippet constant
+    use constant ${1:CONSTANTNAME}  => ${2:CONSTANTVALUE};
+
+snippet suniq
+    sub suniq {
+           my %tmp;
+           my @return;
+           foreach (@_){
+                   $tmp{$_}++;
+           }
+           @return = sort (keys %tmp);
+           return @return;
+    }
+
+snippet     ymd2epoch
+abbr        ymd
+prev_word   '^'
+    sub ymd2epoch {
+        my $ymd = shift;
+        my $hms = shift;
+        my $epoch_sec;
+        if ( ( !defined $ymd ) && ( !defined $hms ) ) {
+            return undef;
+        }
+        if ( !( $ymd =~ /^\d\d\/\d\d\/\d\d/ && $hms =~ /^\d\d:\d\d:\d\d/ ) ) {
+            my @split_YMD = split /\//, $ymd;
+            my @split_HMS = split /:/,  $hms;
+            $epoch_sec = timelocal(
+                $split_HMS[2], $split_HMS[1],     $split_HMS[0],
+                $split_YMD[2], $split_YMD[1] - 1, $split_YMD[0]
+            );
+        }
+        else {
+            return undef;
+        }
+        return $epoch_sec;
+    }
+
+
+snippet     absolute_path
+    sub absolute_path {
+        use Path::Extended;
+        my $path    = shift;
+        my $pathobj = Path::Extended::file($path);
+        $path = $pathobj->absolute();
+    }
+
+snippet     list_basename
+    sub list_basename {
+        my @pathlist = @_;
+        for my $path (@pathlist){
+            push @basename_list,basename($path);
+        }
+        return @basename_list;
+    }
+
