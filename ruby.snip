@@ -8,6 +8,24 @@ abbr        if end
         ${2}
     end
 
+snippet     ife
+abbr        if end
+    if ${1:condition}
+      ${2}
+    else
+      ${3}
+    end
+
+snippet     ifee
+abbr        if end
+    if ${1:condition}
+      ${2}
+    elsif ${2:condition}
+      ${4}
+    else
+      ${5}
+    end
+
 snippet     def
 abbr        def end
     def ${1:func_name}
