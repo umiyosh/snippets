@@ -271,12 +271,12 @@ snippet  getoptc
   );
   my $options = $opts->opts;
   for my $option ( keys %{$options} ) {
-    if ( !$option =~ /verbose|debug|help${3:ommision}/ ) {
-      if ( defined $option ) {
-        print "option:$option must be specify\n";
-        print $opts->usage();
-        die;
-      }
+    unless ( $option =~ /verbose|debug|help|man|${3:ommit option}/ ) {
+        unless ( exists $options->{$option} and defined $options->{$option}) {
+            print "option:$option must be specify\n";
+            print $opts->usage();
+            die;
+        }
     }
   }
 
