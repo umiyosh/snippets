@@ -307,6 +307,27 @@ snippet csv
 
     my ($${2:recbody}_csvrec,$${3:rechead}_header) = make_csv_hash(${1:csv.csv});
 
+snippet csvxs
+    use Text::CSV_XS;
+
+    sub parse_csv {
+        my $filename = shift @_;
+        my (@fields);
+        my $tc =
+          Text::CSV_XS->new( { binary => 1, eol => "\r\n", always_quote => 1 } );
+        open( my $csvhandle, "<", $filename )
+          or die "csv open error $filename :$!\n";
+        while (<$csvhandle>) {
+            unless ( my $eol ) { ($/) = ($eol) = /(\x0d?\x0a|\x0d)$/; }
+            chomp;
+            $tc->parse($_);
+            push @fields, [ $tc->fields ];
+        }
+        close $csvhandle;
+        return @fields;
+    }
+    my @csvrec = parse_csv(${1:csvfilename});
+
 snippet new
     sub new {
         my $class = shift;
