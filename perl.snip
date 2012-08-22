@@ -120,6 +120,10 @@ snippet slurp
 snippet dump
   use Data::Dumper;
   ${1}
+
+snippet loc
+  use local::lib;
+
 snippet say
   print ${1:$var}, "\n";
   ${2}
@@ -395,4 +399,5 @@ snippet     list_basename
         }
         return @basename_list;
     }
+
 
