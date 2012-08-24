@@ -122,7 +122,8 @@ snippet dump
   ${1}
 
 snippet loc
-  use local::lib;
+  use FindBin;
+  use local::lib "$FindBin::Bin/extlib/";
 
 snippet say
   print ${1:$var}, "\n";
