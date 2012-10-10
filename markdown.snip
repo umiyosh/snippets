@@ -1,9 +1,9 @@
 snippet link
 abbr [link][]
-    [${1:link_id}][]${2}
+    [${1:link_id}](${2})${3}
 snippet linkid
 abbr [link][id]
-    [${1:link}][${2:id}]${3}
+    [${1:link}](#${2:id})${3}
 snippet linkurl
 abbr [link](url)
     [${1:link}](http://${2:url})${3}
@@ -30,6 +30,10 @@ abbr ![alt](url)
 snippet alturltitle
 abbr ![alt](url "title")
     ![${1:alt}](${2:url} "${3:title}")${4}
+
+snippet idadd
+abbr `idadd`
+  <a id="${1:id}">${2}
 
 snippet emphasis1
 abbr *emphasis*
@@ -60,3 +64,8 @@ abbr `pre`
   <pre>
   ${1}
   </pre>
+
+snippet line
+abbr `line`
+  ------------------------------------------------------------------------------
+  ${1}
