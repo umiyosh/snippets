@@ -60,8 +60,9 @@ snippet docs
 	/**
 	 * ${4:undocumented function}
 	 *
-	 * @return ${5:void}
-	 * @author ${6}
+	 * @param  ${5:void}
+	 * @return ${6:void}
+	 * @author ${7}
 	 **/
 	${1}function ${2}(${3});${0}
 
@@ -69,8 +70,9 @@ snippet docf
 	/**
 	 * ${4:undocumented function}
 	 *
-	 * @return ${5:void}
-	 * @author ${6}
+	 * @param  ${5:void}
+	 * @return ${6:void}
+	 * @author ${7}
 	 **/
 	${1}function ${2}(${3})
 	{
@@ -87,7 +89,7 @@ snippet doch
 	 * @copyright ${4}
 	 * @package ${5:default}
 	 **/
-	
+
 	/**
 	 * Define DocBlock
 	 **/
@@ -131,12 +133,22 @@ snippet do
 		${0:# code...}
 	} while (${1});
 
-snippet if? 
+snippet if?
 	$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b} ;
 
-snippet ifelse
+snippet ife
 	if (${1:condition}) {
 		${2:# code...}
+	} else {
+		${3:# code...}
+	}
+	${0}
+
+snippet ifee
+	if (${1:condition}) {
+		${2:# code...}
+	elseif (${1:condition}) {
+		${0:# code...}
 	} else {
 		${3:# code...}
 	}
@@ -161,7 +173,7 @@ snippet elseif
 	}
 
 snippet for
-	for ($${1:i}=${2:0}; $${1:i} < ${3}; $${1:i}++) { 
+	for ($${1:i}=${2:0}; $${1:i} < ${3}; $${1:i}++) {
 		${0:# code...}
 	}
 
