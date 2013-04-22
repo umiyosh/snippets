@@ -134,9 +134,19 @@ snippet do
 snippet if?
 	$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b} ;
 
-snippet ifelse
+snippet ife
 	if (${1:condition}) {
 		${2:# code...}
+	} else {
+		${3:# code...}
+	}
+	${0}
+
+snippet ifee
+	if (${1:condition}) {
+		${2:# code...}
+	elseif (${1:condition}) {
+		${0:# code...}
 	} else {
 		${3:# code...}
 	}
