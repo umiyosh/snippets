@@ -1,4 +1,4 @@
-snippet     python
+snippet     py
         #!/usr/bin/env python
         # -*- encoding: utf-8 -*-
 
@@ -94,3 +94,8 @@ prev_word   '^'
 	#!/usr/bin/env python
 	# -*- encoding: utf-8 -*-
 	${1}
+
+snippet     with_cd
+        with cd('${1:/path/to}'):
+                ${2}
+
