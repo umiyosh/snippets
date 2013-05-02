@@ -60,6 +60,24 @@ prev_word   '^'
 	if ${1:condition}:
 		${2:pass}
 
+snippet     ife
+abbr        ife ...: ...
+prev_word   '^'
+	if ${1:condition}:
+		${2:pass}
+	else:
+		${3:pass}
+
+snippet     ifee
+abbr        ife ...: ...
+prev_word   '^'
+	if ${1:condition}:
+		${2:pass}
+	elif ${3:condition}:
+		${4:pass}
+	else:
+		${5:pass}
+
 snippet     ifmain
 abbr        if __name__ == '__main__': ...
 prev_word   '^'
