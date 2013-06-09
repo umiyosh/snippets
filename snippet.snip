@@ -1,15 +1,26 @@
 snippet     snippet
 abbr        snippet abbr prev_word <snippet code>
-alias       snip
 prev_word   '^'
-    snippet     ${1:trigger}
-    abbr        ${2:abbr}
-    prev_word   '^'
-        ${3:snippet code}
+  snippet     ${1:trigger}
+  abbr        ${2:abbr}
+  prev_word   '^'
+    ${3:snippet code}
 
 snippet snipsimple
 abbr        snippet abbr prev_word <snippet code>
 alias       snips
-    snippet ${1:snnipet_name}
-          ${2:code}
+  snippet ${1:snnipet_name}
+    ${2:code}
+
+# snippets for making snippets :)
+snippet snip
+  snippet ${1:trigger}
+    ${2}
+
+snippet msnip
+  snippet ${1:trigger} ${2:description}
+    ${3}
+
+snippet v
+  {VISUAL}
 

@@ -1,38 +1,46 @@
 snippet link
 abbr [link][]
-    [${1:link_id}](${2})${3}
+  [${1:link_id}](${2})${3}
+
 snippet linkid
 abbr [link][id]
-    [${1:link}](#${2:id})${3}
+  [${1:link}](#${2:id})${3}
+
 snippet linkurl
 abbr [link](url)
-    [${1:link}](http://${2:url})${3}
+  [${1:link}](http://${2:url})${3}
+
 snippet linkemail
 abbr [link](email)
-    [${1:link}](mailto:${2:email})${3}
+  [${1:link}](mailto:${2:email})${3}
+
 snippet linkurltitle
 abbr [link](url "title")
-    [${1:link}](${2:url} "${3:title}")${4}
+  [${1:link}](${2:url} "${3:title}")${4}
 
 snippet idlink
 abbr [id](#id)
-    [${1:link}]($${2:id})
+  [${1:link}]($${2:id})
+
 snippet idurl
 abbr [id]: url "title"
-    [${1:id}]: http://${2:url} "${3:title}"
+  [${1:id}]: http://${2:url} "${3:title}"
+
 snippet idemail
 abbr [id]: email "title"
-    [${1:id}]: mailto:${2:url} "${3:title}"
+  [${1:id}]: mailto:${2:url} "${3:title}"
 
 snippet altid
 abbr ![alt][id]
-    ![${1:alt}][${2:id}]${3}
+  ![${1:alt}][${2:id}]${3}
+
 snippet alturl
 abbr ![alt](url)
-    ![${1:alt}](${2:url})${3}
+  ![${1:alt}](${2:url})${3}
+
 snippet alturltitle
 abbr ![alt](url "title")
-    ![${1:alt}](${2:url} "${3:title}")${4}
+  ![${1:alt}](${2:url} "${3:title}")${4}
 
 snippet idadd
 abbr `idadd`
@@ -40,28 +48,30 @@ abbr `idadd`
 
 snippet emphasis1
 abbr *emphasis*
-    *${1}*${2}
+  *${1}*${2}
+
 snippet emphasis2
 abbr _emphasis_
-    _${1}_${2}
+  _${1}_${2}
 
 snippet strong1
 abbr **strong**
-    **${1}**${2}
+  **${1}**${2}
 
 snippet strong2
 abbr __strong__
-    __${1}__${2}
+  __${1}__${2}
 
 snippet code
 abbr `code`
-    `${1}`${2}
+  `${1}`${2}
 
 snippet block
 abbr `block`
   ~~~${1}
   ${2}
   ~~~
+
 snippet pre
 abbr `pre`
   <pre>
@@ -72,3 +82,13 @@ snippet line
 abbr `line`
   ------------------------------------------------------------------------------
   ${1}
+
+snippet gist-full
+  {% gist ${1:gist_id} ${2:filename} %}
+
+snippet gist-short
+  {% gist ${1:gist_id} %}
+
+snippet img
+  {% img ${1:class} ${2:URL} ${3:width} ${4:height} ${5:title_text} ${6:alt_text} %}
+
