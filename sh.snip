@@ -2,12 +2,34 @@ snippet bash
   #!/usr/bin/env bash
   source ~/lib/lib001.sh
 
+snippet zsh
+  #!/usr/bin/env zsh
+  source ~/lib/lib001.sh
+
 snippet tmpf
   tmpf -i;${1:tmpvarname}=$tmpff
   ${2}
 
-snippet who
+snippet while_oneline
   while ${1:condition} ;do ${2:statements} ;done
+
+snippet while
+  while ${1:condition}; do
+    ${2:# statements}
+  done
+
+snippet repeat
+  repeat ${1:integer}; do
+    ${2:# statements}
+  done
+
+snippet select
+  select ${1:answer} in ${2:choices}; do
+    ${3:# statements}
+  done
+
+snippet [
+  [[ ${1:test} ]]
 
 snippet here
   cat <<HERE
@@ -87,16 +109,6 @@ snippet tmp
   trap "rm -f '$${1}'; exit 1" 1 15    # HUP TERM
     ${0}
 
-snippet header
-  ###############################################################################
-  # 名      称 ：${1:name}
-  # 機      能 ：${2:function}
-  # 備      考 ：${3:remarks}
-  # 制      限 ：${4:restrictions}
-  # TODO       ：${5:TODO}
-  # 作成年月日 ：${6:date}
-  ###############################################################################
-
 snippet func
   function ${1:function_name}()
   {
@@ -122,4 +134,8 @@ snippet getopt
       exit 2
     esac
   done
+
+# Set SCRIPT_DIR variable to directory script is located.
+snippet sdir
+  SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 

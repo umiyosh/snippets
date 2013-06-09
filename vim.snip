@@ -76,3 +76,13 @@ prev_word   '^'
   function! ${1:func_name}(arglead, cmdline, cursorpos)
     return filter(${2:list}, 'stridx(v:val, a:arglead) == 0')
   endfunction
+
+snippet au
+  augroup ${1:AU_NAME}
+    " this one is which you're most likely to use?
+    autocmd ${2:BufRead,BufNewFile} ${3:*.ext,*.ext3|<buffer[=N]>} ${4}
+  augroup end
+
+snippet bun
+  Bundle '${1}'
+
