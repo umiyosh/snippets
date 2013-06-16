@@ -21,7 +21,7 @@ snippet echo
   echo "${1:string}"${0};
 
 snippet pfore
-  <?$php foreach ($${1:variable} as $${2:key}${3: =>}): ?>
+  <?$php foreach ($${1:variable} as $${2:key} ${3: =>}): ?>
   ${0}
   <?php endforeach ?>
 
@@ -134,7 +134,7 @@ snippet class
   /**
    * ${1}
    */
-  class ${2:ClassName}${3:extends}}
+  class ${2:ClassName} ${3:extends}}
   {
     $5
     function ${4:__construct}(${5:argument})
@@ -260,7 +260,7 @@ abbr sw
   }
 
 snippet throw
-  throw new ${1}Exception(${2:"${3:Error Processing Request}"}${4:});
+  throw new ${1}Exception(${2:"${3:Error Processing Request}"} ${4:});
   ${0}
 
 snippet try
@@ -276,7 +276,7 @@ abbr wh
   }
 
 snippet gloabals
-  \$GLOBALS['${1:variable}']${2: = }${3:something}${4:;}${0}
+  \$GLOBALS['${1:variable}']${2: = } ${3:something} ${4:;} ${0}
 
 snippet cookie
   \$_COOKIE['${1:variable}']
