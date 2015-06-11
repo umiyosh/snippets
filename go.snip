@@ -94,6 +94,11 @@ snippet if
 	if ${1:/* condition */} {
 		${2}
 	}
+snippet ifn
+	if err != nil {
+		${1}
+		return err
+	}
 # else snippet
 snippet el
 	else {
@@ -121,27 +126,36 @@ snippet f3
 snippet f6
 	float64
 # if else
-snippet ie
+snippet ife
 	if ${1:/* condition */} {
 		${2}
 	} else {
 		${3}
 	}
 	${0}
+snippet ifee
+	if ${1:/* condition1 */} {
+		${2}
+	} else if ${3:/* condition2 */} {
+		${4}
+	} else {
+		${5}
+	}
+	${0}
 # for loop
-snippet fo
+snippet for
 	for ${2:i} := 0; $2 < ${1:count}; $2${3:++} {
 		${4}
 	}
 	${0}
 # for range loop
-snippet fr
+snippet fore
 	for ${1:k}, ${2:v} := range ${3} {
 		${4}
 	}
 	${0}
 # function simple
-snippet fun
+snippet func
 	func ${1:funcName}(${2}) ${3:error} {
 		${4}
 	}
@@ -174,7 +188,7 @@ snippet main
 snippet nw
 	new(${0:type})
 # package
-snippet pa
+snippet package
 	package ${1:main}
 # panic
 snippet pn
@@ -205,13 +219,13 @@ snippet sl
 snippet sr
 	string
 # struct
-snippet st
+snippet struct
 	struct ${1:name} {
 		${2:/* data */}
 	}
 	${0}
 # switch
-snippet sw
+snippet switch
 	switch ${1:var} {
 	case ${2:value1}:
 		${3}
