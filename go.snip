@@ -1,3 +1,11 @@
+snippet golang
+	package main
+	import (
+		"${1:package}"
+	)
+	func main(${2}) {
+		${3}
+	}
 # shorthand variable declaration
 snippet v
 	${1} := ${2}
@@ -77,7 +85,7 @@ snippet gpl
 snippet i
 	int
 # import
-snippet im
+snippet import
 	import (
 		"${1:package}"
 	)
@@ -156,12 +164,12 @@ snippet fore
 	${0}
 # function simple
 snippet func
-	func ${1:funcName}(${2}) ${3:error} {
+	func ${1:funcName}( ${2} ) ${3:error} {
 		${4}
 	}
-	${0}
+
 # function on receiver
-snippet fum
+snippet funcm
 	func (${1:receiver} ${2:type}) ${3:funcName}(${4}) ${5:error} {
 		${6}
 	}
@@ -179,7 +187,7 @@ snippet mk
 snippet mp
 	map[${1:string}]${0:int}
 # main()
-snippet main
+snippet funcmain
 	func main() {
 		${1}
 	}
@@ -194,7 +202,7 @@ snippet package
 snippet pn
 	panic("${0:msg}")
 # print
-snippet pr
+snippet print
 	fmt.Printf("%${1:s}\n", ${2:var})
 # range
 snippet rn
@@ -219,8 +227,13 @@ snippet sl
 snippet sr
 	string
 # struct
+snippet type
+	type ${1:name} struct {
+		${2:/* data */}
+	}
+	${0}
 snippet struct
-	struct ${1:name} {
+	${1:name} struct {
 		${2:/* data */}
 	}
 	${0}
