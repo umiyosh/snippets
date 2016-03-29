@@ -115,6 +115,12 @@ snippet func
     ${2:proc}
   }
 
+# http://c16e.com/1603281120/
+snippet bl
+  : "${1:block_name}" && {
+    ${2:proc}
+  }
+
 snippet getopt
   #${1:option parse}
   if [[ -z ${1} ]]
