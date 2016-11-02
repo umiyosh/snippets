@@ -8,7 +8,7 @@ snippet zsh
   source ~/lib/lib001.sh
 
 snippet tmpf
-  tmpf -i;${1:tmpvarname}=$tmpff
+  tmpf -i ${2:-f md};${1:tmpvarname}=$tmpff
   ${2}
 
 snippet while_oneline
@@ -145,3 +145,6 @@ snippet getopt
 snippet sdir
   SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+snippet namedblock
+  : "${1:procname}" && {
+  }
