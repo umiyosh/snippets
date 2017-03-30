@@ -155,6 +155,19 @@ snippet     with_cd
 	with cd('${1:/path/to}'):
 		${2}
 
+snippet     op
+	with open('${1:/path/to}', '${2:r}') as ${3:file}:
+		$3.${4:read}
+
+snippet     readstdin
+	for line in fileinput.input():
+		${1}
+
+snippet     readline
+    with open('${1:/path/to}') as ${2:file}::
+        for ${3:line} in $2:
+           ${4:print line}
+
 # Lambda
 snippet ld
 	${1:var} = lambda ${2:vars} : ${3:action}
