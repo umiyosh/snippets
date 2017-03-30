@@ -1,208 +1,214 @@
 snippet     py
-  #!/usr/bin/env python
-  # -*- coding: utf-8 -*-
+	#!/usr/bin/env python
+	# -*- coding: utf-8 -*-
+	${1}
 
 snippet imp
-  import ${1:module}
+	import ${1:module}
 
 snippet from
-  from ${1:package} import ${2:module}
+	from ${1:package} import ${2:module}
 
 # Module Docstring
 snippet docs
-  """
-  File: ${1:`Filename('$1.py', 'foo.py')`}
-  Author: `g:snips_author`
-  Email: `g:snips_email`
-  Github: `g:snips_github`
-  Description: ${2}
-  """
+	"""
+	File: ${1:`Filename('$1.py', 'foo.py')`}
+	Author: `g:snips_author`
+	Email: `g:snips_email`
+	Github: `g:snips_github`
+	Description: ${2}
+	"""
 
 snippet     class
 abbr        class Class(...): ...
 prev_word   '^'
-  class ${1:name}(${2:object}):
-    """${3:class documentation}"""
-    def __init__(self, ${4}):
-      """${5:__init__ documentation}"""
-      ${6:pass}
+	class ${1:name}(${2:object}):
+		"""${3:class documentation}"""
+		def __init__(self, ${4}):
+			"""${5:__init__ documentation}"""
+			${6:pass}
 
 snippet     def
 abbr        def function(...): ...
 prev_word   '^'
-  def ${1:name}(${2}):
-    """${3:function documentation}"""
-    ${4:pass}
+	def ${1:name}(${2}):
+		"""${3:function documentation}"""
+		${4:pass}
 
 snippet     defm
 abbr        def method(self, ...): ...
 prev_word   '^'
-  def ${1:name}(self, ${2}):
-    """${3:method documentation}"""
-    ${4:pass}
+	def ${1:name}(self, ${2}):
+		"""${3:method documentation}"""
+		${4:pass}
 
 snippet     elif
 abbr        elif ...: ...
 prev_word   '^'
-  elif ${1:condition}:
-    ${2:pass}
+	elif ${1:condition}:
+		${2:pass}
 
 snippet     else
 abbr        else: ...
 prev_word   '^'
-  else:
-    ${1:pass}
+	else:
+		${1:pass}
 
 snippet     fileidiom
 abbr        f = None try: f = open(...) finally: ...
 prev_word   '^'
-  ${1:f} = None
-  try:
-    $1 = open(${2})
-    ${3}
-  finally:
-  if $1:
-    $1.close()
+	${1:f} = None
+	try:
+		$1 = open(${2})
+		${3}
+	finally:
+	if $1:
+		$1.close()
 
 snippet     for
 abbr        for ... in ...: ...
+options     indent
 prev_word   '^'
-  for ${1:value} in ${2:list}:
-    ${3:pass}
+	for ${1:value} in ${2:list}:
+		${3:pass}
 
 snippet     if
 abbr        if ...: ...
 prev_word   '^'
-  if ${1:condition}:
-    ${2:pass}
+	if ${1:condition}:
+		${2:pass}
 
 snippet     ife
 abbr        ife ...: ...
+options     indent
 prev_word   '^'
-  if ${1:condition}:
-    ${2:pass}
-  else:
-    ${3:pass}
+	if ${1:condition}:
+		${2:pass}
+	else:
+		${3:pass}
 
 snippet     ifee
 abbr        ife ...: ...
 prev_word   '^'
-  if ${1:condition}:
-    ${2:pass}
-  elif ${3:condition}:
-    ${4:pass}
-  else:
-    ${5:pass}
+	if ${1:condition}:
+		${2:pass}
+	elif ${3:condition}:
+		${4:pass}
+	else:
+		${5:pass}
 
 snippet     ifmain
 abbr        if __name__ == '__main__': ...
 prev_word   '^'
-  if __name__ == '__main__':
-    ${1:pass}
+	if __name__ == '__main__':
+		${1:pass}
 
-snippet try Try/Except
-  try:
-    ${1:# TODO: write code...}
-  except ${2:Exception}, ${3:e}:
-    ${4:raise $3}
+snippet try
+options indent
+	try:
+		${1:# TODO: write code...}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
 
-snippet try Try/Except/Else
-  try:
-    ${1:# TODO: write code...}
-  except ${2:Exception}, ${3:e}:
-    ${4:raise $3}
-  else:
-    ${5:# TODO: write code...}
+snippet tryee
+	try:
+		${1:# TODO: write code...}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	else:
+		${5:# TODO: write code...}
 
-snippet try Try/Except/Finally
-  try:
-    ${1:# TODO: write code...}
-  except ${2:Exception}, ${3:e}:
-    ${4:raise $3}
-  finally:
-    ${5:# TODO: write code...}
+snippet tryef
+options indent
+	try:
+		${1:# TODO: write code...}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	finally:
+		${5:# TODO: write code...}
 
-snippet try Try/Except/Else/Finally
-  try:
-    ${1:# TODO: write code...}
-  except ${2:Exception}, ${3:e}:
-    ${4:raise $3}
-  else:
-    ${5:# TODO: write code...}
-  finally:
-    ${6:# TODO: write code...}
+snippet tryeef
+options indent
+	try:
+		${1:# TODO: write code...}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	else:
+		${5:# TODO: write code...}
+	finally:
+		${6:# TODO: write code...}
 
 snippet     while
 abbr        while ...: ...
 prev_word   '^'
-  while ${1:condition}:
-    ${2:pass}
+	while ${1:condition}:
+		${2:pass}
 
 
 snippet     python
 prev_word   '^'
-  #!/usr/bin/env python
-  # -*- encoding: utf-8 -*-
-  ${1}
+	#!/usr/bin/env python
+	# -*- encoding: utf-8 -*-
+	${1}
 
 snippet     with_cd
-  with cd('${1:/path/to}'):
-    ${2}
+	with cd('${1:/path/to}'):
+		${2}
 
 # Lambda
 snippet ld
-  ${1:var} = lambda ${2:vars} : ${3:action}
+	${1:var} = lambda ${2:vars} : ${3:action}
 
 # python debugger (pdb)
 snippet pdb
-  import pdb; pdb.set_trace()
+	import pdb; pdb.set_trace()
 
 # ipython debugger (ipdb)
 snippet ipdb
-  import ipdb; ipdb.set_trace()
+	import ipdb; ipdb.set_trace()
 
 # ipython debugger (pdbbb)
 snippet pdbbb
-  import pdbpp; pdbpp.set_trace()
+	import pdbpp; pdbpp.set_trace()
 
 snippet pprint
-  import pprint; pprint.pprint(${1})${2}
+	import pprint; pprint.pprint(${1})${2}
 
 #getopt
 snippet getopt
-  try:
-    # Short option syntax: "hv:"
-    # Long option syntax: "help" or "verbose="
-    opts, args = getopt.getopt(sys.argv[1:], "${1:short_options}", [${2:long_options}])
-  except getopt.GetoptError, err:
-    # Print debug info
-    print str(err)
-    ${3:error_action}
-  for option, argument in opts:
-    if option in ("-h", "--help"):
-      ${4}
-    elif option in ("-v", "--verbose"):
-      verbose = argument
+	try:
+		# Short option syntax: "hv:"
+		# Long option syntax: "help" or "verbose="
+		opts, args = getopt.getopt(sys.argv[1:], "${1:short_options}", [${2:long_options}])
+	except getopt.GetoptError, err:
+		# Print debug info
+		print str(err)
+		${3:error_action}
+	for option, argument in opts:
+		if option in ("-h", "--help"):
+			${4}
+		elif option in ("-v", "--verbose"):
+			verbose = argument
 
 # logging
 # glog = get log
 snippet glog
-  import logging
-  logger = logging.getLogger(${1:__name__})
+	import logging
+	logger = logging.getLogger(${1:__name__})
 
 snippet le
-  logger.error(${1:msg})
+	logger.error(${1:msg})
 
 # conflict with lambda=ld, therefor we change into Logger.debuG
 snippet lg
-  logger.debug(${1:msg})
+	logger.debug(${1:msg})
 
 snippet lw
-  logger.warning(${1:msg})
+	logger.warning(${1:msg})
 
 snippet lc
-  logger.critical(${1:msg})
+	logger.critical(${1:msg})
 
 snippet li
-  logger.info(${1:msg})
+	logger.info(${1:msg})
 
