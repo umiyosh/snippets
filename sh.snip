@@ -18,6 +18,10 @@ snippet while
   while ${1:condition}; do
     ${2:# statements}
   done
+snippet while_read
+  while read -r line; do
+    ${1:# statements}
+  done
 
 snippet repeat
   repeat ${1:integer}; do
