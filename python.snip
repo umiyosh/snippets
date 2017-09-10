@@ -205,9 +205,17 @@ snippet getopt
 
 # logging
 # glog = get log
-snippet glog
-	import logging
-	logger = logging.getLogger(${1:__name__})
+snippet logimport
+  from logging import getLogger, StreamHandler, Formatter , DEBUG
+
+snippet getlogger
+  logger = getLogger(${1:__name__})
+  formatter = Formatter('%(asctime)s %(pathname)s [%(module)s] - %(funcName)s:L%(lineno)d : %(message)s')
+  handler = StreamHandler()
+  handler.setLevel(DEBUG)
+  logger.setLevel(DEBUG)
+  logger.addHandler(handler)
+  logger.propagate = False
 
 snippet le
 	logger.error(${1:msg})
