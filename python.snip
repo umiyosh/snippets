@@ -232,6 +232,7 @@ snippet getlogger
 	logger = getLogger(${1:__name__})
 	formatter = Formatter( '%(asctime)s %(pathname)s [%(module)s] - %(funcName)s:L%(lineno)d : %(message)s')
 	handler = StreamHandler()
+	handler.setFormatter(formatter)
 	handler.setLevel(DEBUG)
 	logger.setLevel(DEBUG)
 	logger.addHandler(handler)
