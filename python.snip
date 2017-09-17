@@ -28,6 +28,13 @@ prev_word   '^'
 			"""${5:__init__ documentation}"""
 			${6:pass}
 
+snippet     init
+abbr        def __init__(...): ...
+prev_word   '^'
+  def __init__(self, ${1}):
+    """${2:__init__ documentation}"""
+    ${3:pass}
+
 snippet     def
 abbr        def function(...): ...
 prev_word   '^'
