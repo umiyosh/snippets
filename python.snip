@@ -122,13 +122,13 @@ snippet try
 options indent
 	try:
 		${1:# TODO: write code...}
-	except ${2:Exception}, ${3:e}:
+	except ${2:Exception} as ${3:e}:
 		${4:raise $3}
 
 snippet tryee
 	try:
 		${1:# TODO: write code...}
-	except ${2:Exception}, ${3:e}:
+	except ${2:Exception} as ${3:e}:
 		${4:raise $3}
 	else:
 		${5:# TODO: write code...}
@@ -137,7 +137,7 @@ snippet tryef
 options indent
 	try:
 		${1:# TODO: write code...}
-	except ${2:Exception}, ${3:e}:
+	except ${2:Exception} as ${3:e}:
 		${4:raise $3}
 	finally:
 		${5:# TODO: write code...}
@@ -146,7 +146,7 @@ snippet tryeef
 options indent
 	try:
 		${1:# TODO: write code...}
-	except ${2:Exception}, ${3:e}:
+	except ${2:Exception} as ${3:e}:
 		${4:raise $3}
 	else:
 		${5:# TODO: write code...}
