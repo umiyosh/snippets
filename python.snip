@@ -247,6 +247,13 @@ snippet getlogger_rainbow
 	logger.propagate = False
 	logger.addHandler(handler)
 
+snippet argparse
+	import argparse
+	parser = argparse.ArgumentParser( description='${1:description}')
+	parser.add_argument( '${2: -a}', '${3: --longoption}', dest='${4:valiable}', type=str, help='${5:helpmessage}', required=${6:option})
+	parser.add_argument( '${6: -a}', '${7: --longoption}', dest='${8:valiable}', action='store_true', help='${9:helpmessage}', required=${10:False})
+	parser.set_defaults(quiet=${11:False})
+
 snippet le
 	logger.error(${1:msg})
 
