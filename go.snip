@@ -34,6 +34,7 @@ snippet br
 	break
 # channel
 snippet ch
+abbr chan Type
 	chan ${0:int}
 # case
 snippet cs
@@ -174,6 +175,12 @@ snippet funcm
 		${6}
 	}
 	${0}
+# anonymous function
+snippet anon
+abbr fn := func() { ... }
+	${1:fn} := func() {
+		${0}
+	}
 # log printf
 snippet lf
 	log.Printf("%${1:s}", ${2:var})
