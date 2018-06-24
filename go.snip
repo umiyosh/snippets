@@ -24,6 +24,10 @@ snippet vars
 snippet ap
 abbr append(slice, value)
 	append(${1:slice}, ${0:value})
+# append assign
+snippet ap=
+abbr slice = append(slice, value)
+  ${1:slice} = append($1, ${0:value})
 # bool
 snippet bl
 	bool
