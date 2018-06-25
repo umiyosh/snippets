@@ -74,15 +74,23 @@ snippet cn
 abbr continue
 	continue
 # defer
-snippet df
-	defer ${0:func}()
+snippet defer
+abbr defer someFunction()
+	defer ${1:func}(${2})
+	${0}
+snippet deff
+abbr defer func() { ... }
+	defer func() {
+		${0}
+	}()
 # defer recover
-snippet dfr
+snippet defr
 	defer func() {
 		if err := recover(); err != nil {
 			${0}
 		}
 	}()
+
 # gpl
 snippet gpl
 	/*
