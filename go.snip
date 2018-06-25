@@ -46,14 +46,23 @@ snippet case
 abbr case ...:
 	case ${1:value}:
 		${0}
-# const
-snippet c
-	const ${1:NAME} = ${0:0}
-# constants with iota
-snippet co
+# constant
+snippet con
+abbr const XXX Type = ...
+	const ${1:NAME} ${2:Type} = ${0:0}
+# constants
+snippet cons
+abbr const ( ... )
 	const (
-		${1:NAME1} = iota
-		${0:NAME2}
+		${1:NAME} ${2:Type} = ${3:value}
+		${0}
+	)
+# constants with iota
+snippet iota
+abbr const ( ... = iota )
+	const (
+		${1:NAME} ${2:Type} = iota
+		${0}
 	)
 # continue
 snippet cn
