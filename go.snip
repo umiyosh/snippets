@@ -104,9 +104,10 @@ abbr import ( ... )
 snippet in
 	interface{}
 # full interface snippet
-snippet inf
-	interface ${1:name} {
-		${2:/* methods */}
+snippet interface
+abbr interface I { ... }
+	type ${1:Interface} interface {
+		${2:/* TODO: add methods */}
 	}
 # if condition
 snippet if
