@@ -111,8 +111,15 @@ abbr interface I { ... }
 	}
 # if condition
 snippet if
-	if ${1:/* condition */} {
-		${2}
+abbr if ... { ... }
+	if ${1:condition} {
+		${0}
+	}
+# else snippet
+abbr else { ... }
+snippet else
+	else {
+		${0}
 	}
 snippet ifn
 	if err != nil {
@@ -124,27 +131,6 @@ snippet el
 	else {
 		${1}
 	}
-# error snippet
-snippet ir
-	if err != nil {
-		return err
-	}
-	${0}
-# false
-snippet f
-	false
-# fallthrough
-snippet ft
-	fallthrough
-# float
-snippet fl
-	float32
-# float32
-snippet f3
-	float32
-# float64
-snippet f6
-	float64
 # if else
 snippet ife
 	if ${1:/* condition */} {
@@ -162,6 +148,68 @@ snippet ifee
 		${5}
 	}
 	${0}
+# if inline error
+snippet ifn
+abbr if err := ...; err != nil { ... }
+	if err := ${1:condition}; err != nil {
+		${0}
+	}
+# error snippet
+snippet ifnr
+abbr if err != nil { return err }
+	if err != nil {
+		return err
+	}
+	${0}
+# error snippet in TestFunc
+snippet ifnt
+abbr if err != nil { t.Fatal(err) }
+	if err != nil {
+		t.Fatal(err)
+	}
+# error snippet in log.Fatal
+snippet ifnl
+abbr if err != nil { log.Fatal(err) }
+	if err != nil {
+		log.Fatal(err)
+	}
+# error snippet with two return values
+snippet ifnr,
+abbr if err != nil { return [...], err }
+	if err != nil {
+		return ${1:nil}, err
+	}
+	${0}
+# error snippet handle and return
+snippet ifr
+abbr if err != nil { ... return }
+	if err != nil {
+		${1}
+		return
+	}
+	${0}
+# error snippet with panic
+snippet ifp
+abbr if err != nil { panic(...) }
+	if err != nil {
+		panic(${1})
+	}
+	${0}
+# false
+snippet f
+	false
+# fallthrough
+snippet ft
+	fallthrough
+# float
+snippet fl
+	float32
+# float32
+snippet f3
+	float32
+# float64
+snippet f6
+	float64
 # for loop
 snippet for
 	for ${2:i} := 0; $2 < ${1:count}; $2${3:++} {
