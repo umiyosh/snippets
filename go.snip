@@ -268,8 +268,17 @@ snippet logl
 abbr log.Println(...)
 	log.Println("${1}")
 # make
-snippet mk
-	make(${1:[]string}, ${0:0})
+snippet make
+abbr make(Type, size)
+	make(${1:[]string}, ${2:0})${0}
+# makemap
+snippet makemap
+abbr make(Type, size)
+	make(map[${1:string}]${0:int}, ${3:0})${4}
+# makechan
+snippet makechan
+abbr makechan
+	make(chan ${0:int}${1:, size})
 # map
 snippet mp
 	map[${1:string}]${0:int}
