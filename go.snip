@@ -260,10 +260,12 @@ snippet fmterr
 abbr fmt.Errorf(...)
 	fmt.Errorf("${1}")
 # log printf
-snippet lf
-	log.Printf("%${1:s}", ${2:var})
-# log printf
-snippet lp
+snippet logf
+abbr log.Printf(...)
+	log.Printf("${1} = %+v\n", $1)
+# log println
+snippet logl
+abbr log.Println(...)
 	log.Println("${1}")
 # make
 snippet mk
