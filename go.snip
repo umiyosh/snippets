@@ -248,6 +248,17 @@ abbr fn := func() { ... }
 	${1:fn} := func() {
 		${0}
 	}
+# print
+snippet fmtpf
+abbr fmt.Printf(...)
+	fmt.Printf("%${1:s}\n", ${2:var})
+# Fmt Println debug
+snippet fmtpl
+abbr fmt.Println(...)
+# Fmt Errorf
+snippet fmterr
+abbr fmt.Errorf(...)
+	fmt.Errorf("${1}")
 # log printf
 snippet lf
 	log.Printf("%${1:s}", ${2:var})
@@ -275,9 +286,6 @@ snippet package
 # panic
 snippet pn
 	panic("${0:msg}")
-# print
-snippet print
-	fmt.Printf("%${1:s}\n", ${2:var})
 # range
 snippet rn
 	range ${0}
