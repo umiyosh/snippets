@@ -282,12 +282,12 @@ abbr makechan
 snippet map
 abbr map[Type]Type
 	map[${1:string}]${0:int}
-# main()
-snippet funcmain
+snippet main
+abbr func main() { ... }
+options head
 	func main() {
-		${1}
+		${0}
 	}
-	${0}
 # new
 snippet nw
 	new(${0:type})
