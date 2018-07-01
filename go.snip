@@ -264,6 +264,10 @@ abbr fmt.Println(...)
 snippet fmterr
 abbr fmt.Errorf(...)
 	fmt.Errorf("${1}")
+snippet fmtsp
+alias sp
+abbr fmt.Sprintf(...)
+	fmt.Sprintf("%${1:s}", ${2:var})
 # log printf
 snippet logf
 abbr log.Printf(...)
@@ -354,8 +358,6 @@ abbr switch x { ... }
 	default:
 		${0}
 	}
-snippet sp
-	fmt.Sprintf("%${1:s}", ${2:var})
 # true
 snippet t
 	true
