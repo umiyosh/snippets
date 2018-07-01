@@ -302,7 +302,9 @@ abbr package ...
 	package ${1:main}
 	${0}
 # panic
-snippet pn
+snippet panic
+alias pn
+abbr panic("...")
 	panic("${0:msg}")
 # range
 snippet rn
