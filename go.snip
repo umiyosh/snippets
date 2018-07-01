@@ -362,10 +362,12 @@ abbr switch x { ... }
 snippet t
 	true
 # goroutine named function
-snippet g
+snippet go
+abbr go someFunc(...)
 	go ${1:funcName}(${0})
 # goroutine anonymous function
-snippet ga
+snippet gof
+abbr go func(...) { ... }(...)
 	go func(${1} ${2:type}) {
 		${3:/* code */}
 	}(${0})
