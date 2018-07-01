@@ -371,11 +371,44 @@ abbr go func(...) { ... }(...)
 	go func(${1} ${2:type}) {
 		${3:/* code */}
 	}(${0})
-snippet test test function
+snippet test
+abbr func TestXYZ(t *testing.T) { ... }
 	func Test${1:name}(t *testing.T) {
 		${2}
 	}
 	${0}
+# test error
+snippet testerr
+alias ter
+abbr if err != nil { t.Errorf(...) }
+  if err != nil {
+    t.Errorf("${1}")
+  }
+# test fatal error
+snippet testfatal
+alias terf
+abbr if err != nil { t.Fatalf(...) }
+  if err != nil {
+    t.Fatalf("${1}")
+  }
+# test server
+snippet testserver
+snippet tsrv
+abbr ts := httptest.NewServer(...)
+  ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintln(w, ${1:`response`})
+  }))
+  defer ts.Close()
+
+  //Use testing server url (type string) somewhere
+  ${0:someUrl} = ts.URL
+# test benchmark
+snippet benchmark
+	func Benchmark${1:Method}(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			${0}
+		}
+	}
 # json snippet
 snippet json
 abbr \`json:key\`
@@ -385,10 +418,3 @@ snippet yaml
 abbr \`yaml:key\`
 	\`yaml:"${1:keyName}"\`
 
-snippet bench benchmark function
-	func Benchmark${1:name}(b *testing.B) {
-		for i := 0; i < b.N; i++ {
-			${2}
-		}
-	}
-	${0}
