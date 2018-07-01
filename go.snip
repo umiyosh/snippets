@@ -318,7 +318,9 @@ abbr return ...
 snippet rs
 	result
 # select
-snippet sl
+snippet select
+alias sl
+abbr select { case a := <-chan: ... }
 	select {
 	case ${1:v1} := <-${2:chan1}
 		${3}
