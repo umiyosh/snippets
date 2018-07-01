@@ -14,11 +14,13 @@ snippet vr
 	var ${1:t} ${0:string}
 # variable declaration
 snippet var
-	var ${1} ${2} = ${3}
+abbr var x Type [= ...]
+	var ${1:x} ${2:Type}${3: = ${0:value\}}
 # variables declaration
 snippet vars
+abbr var ( ... )
 	var (
-		${1} ${2} = ${3}
+		${1:x} ${2:Type}${3: = ${0:value\}}
 	)
 # append
 snippet ap
