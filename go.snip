@@ -195,6 +195,11 @@ abbr if err != nil { panic(...) }
 		panic(${1})
 	}
 	${0}
+snippet ifok
+abbr if !ok { ... }
+	if !ok {
+		${0}
+	}
 # false
 snippet f
 	false
