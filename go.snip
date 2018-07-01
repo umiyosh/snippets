@@ -334,10 +334,10 @@ snippet sr
 	string
 # struct
 snippet type
-	type ${1:name} struct {
-		${2:/* data */}
+abbr type T struct { ... }
+	type ${1:Type} struct {
+		${0}
 	}
-	${0}
 snippet struct
 	${1:name} struct {
 		${2:/* data */}
