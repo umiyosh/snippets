@@ -54,11 +54,13 @@ abbr default: ...
 	default:
 		${0}
 # constant
-snippet con
+snippet const
+alias con
 abbr const XXX Type = ...
 	const ${1:NAME} ${2:Type} = ${0:0}
 # constants
-snippet cons
+snippet constt
+alias cons
 abbr const ( ... )
 	const (
 		${1:NAME} ${2:Type} = ${3:value}
