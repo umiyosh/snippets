@@ -435,3 +435,12 @@ abbr mux.HandleFunc(...)
     ${0:fmt.Fprintf(w, "hello world")}
   })
 
+# -----------------------------
+snippet open
+abbr file, err := os.Open(...) ...
+	${2:file}, err := os.Open("${1}")
+	defer $2.Close()
+	if err != nil {
+		panic(err)
+	}
+
