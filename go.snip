@@ -448,7 +448,7 @@ abbr file, err := os.Open(...) ...
 	}
 
 snippet bufioreadstring
-alias bufs
+alias bufst
 abbr reader := bufio.NewReader(...) ...
 	${2:reader} := bufio.NewReader(${1:file})
 	for {
@@ -460,3 +460,15 @@ abbr reader := bufio.NewReader(...) ...
 			panic(err)
 		}
 	}
+
+snippet bufioscan
+alias bufsc
+abbr reader := bufio.NewScanner(...) ...
+	${2:scanner} := bufio.NewScanner(${1:file})
+	for $2.Scan() {
+		fmt.Print($2.Text())
+	}
+	if $2.Err() != nil {
+		panic($2.Err())
+	}
+
