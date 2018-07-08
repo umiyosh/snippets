@@ -472,3 +472,18 @@ abbr reader := bufio.NewScanner(...) ...
 		panic($2.Err())
 	}
 
+snippet csvread
+alias csvr
+abbr reader := csv.NewReader(...) ...
+	${2:reader} := csv.NewReader(${1:file})
+	reader.Comma = ${3:'\t'}
+	reader.LazyQuotes = ${4:true}
+	for {
+		${5:record}, err := $2.Read()
+		if err == io.EOF {
+			break
+		} else if err != nil {
+			panic(err)
+		}
+	}
+
