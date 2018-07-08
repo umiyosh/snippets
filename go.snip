@@ -444,3 +444,16 @@ abbr file, err := os.Open(...) ...
 		panic(err)
 	}
 
+snippet bufioreadstring
+alias bufs
+abbr reader := bufio.NewReader(...) ...
+	${2:reader} := bufio.NewReader(${1:file})
+	for {
+		${:buf}, err := $2.ReadString(${3:'\n'})
+		if err != nil {
+			if err == io.EOF || err == io.ErrClosedPipe {
+				break
+			}
+			panic(err)
+		}
+	}
