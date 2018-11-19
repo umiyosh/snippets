@@ -1,58 +1,59 @@
 snippet box
-  box "${1:boxname}" ${2:#LightBlue}
-      participant ${3:nodename}
-      ${4}
-  end box
+	box "${1:boxname}" ${2:#LightBlue}
+		participant ${3:nodename}
+		${4}
+	end box
 
 snippet GKE
-  box "GKE" #LightBlue
-      participant ${1:servicename}
-      participant ${2:servicename}
-      participant ${3:servicename}
-  end box
+	box "GKE" #LightBlue
+		participant ${1:servicename}
+		participant ${2:servicename}
+		participant ${3:servicename}
+	end box
 
 snippet mongodb
-  box "${1:MongoDB}" #LightGreen
-    database ${2:collectionA}
-    database ${3:collectionB}
-  end box
+	box "${1:MongoDB}" #LightGreen
+		database ${2:collectionA}
+		database ${3:collectionB}
+	end box
 
 snippet bigtable
-  box "${1:Bigtable}" #LightBlue
-    database ${2:tablename}
-  end box
+	box "${1:Bigtable}" #LightBlue
+		database ${2:tablename}
+	end box
 
 snippet redis
-  box "${1:Redis}" #Pink
-    database ${2:keyname}
-  end box
+	box "${1:Redis}" #Pink
+		database ${2:keyname}
+	end box
 
 snippet gcs
-  box "${1:GCS}" #LightBlue
-    database ${2:bucketname}
-  end box
+	box "${1:GCS}" #LightBlue
+		database ${2:bucketname}
+	end box
 
 snippet noter
-  rnote over ${1:nodename}
-   ${2:description}
-  endrnote
+	rnote over ${1:nodename}
+		${2:description}
+	endrnote
 
 snippet noteone
-  note right of ${1:description}
+	note right of ${1:description}
 
 snippet groupif
-  group ${1:groupname}
-    aaa -> bbb
-  end
+	group ${1:groupname}
+		aaa -> bbb
+	end
 
 snippet groupif
-  group ${1:groupname}
-    else ${2:conditionname}
-        aaa -> bbb
-    else ${3:conditionname}
-  end
+	group ${1:groupname}
+		else ${2:conditionname}
+			aaa -> bbb
+		else ${3:conditionname}
+	end
 
 snippet loop
-  loop ${1:loop_description}
-      ${2}
-  end
+	loop ${1:loop_description}
+		${2}
+	end
+
