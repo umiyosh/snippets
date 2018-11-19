@@ -1,3 +1,40 @@
+# common
+snippet start
+	@startuml
+		${0}
+	@enduml
+
+# design
+snippet rectangle
+	rectangle ${1} {
+		$0
+	}
+
+# sequence
+snippet message
+	${1} -> ${2}: ${3}
+snippet message2
+	${1} -> ${2}: ${3}
+	${1} <- ${2}: ${4}
+snippet message3
+	${1} -> ${2}: ${3}
+	activate
+	${1} <-- ${2}: ${4}
+	destroy
+
+snippet actor
+	actor ${1:actor}
+snippet participant
+	participant ${1:participant}
+snippet boundary
+	boundary ${1:boundary}
+snippet control
+	control ${1:control}
+snippet entity
+	entity ${1:entity}
+snippet database
+	database ${1:database}
+
 snippet box
 	box "${1:boxname}" ${2:#LightBlue}
 		participant ${3:nodename}
