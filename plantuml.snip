@@ -15,15 +15,15 @@ snippet rectangle
 # sequence
 snippet message
 	${1} -> ${2}: ${3}
-snippet message2
+snippet message_roundtrip
 	${1} -> ${2}: ${3}
 	$1 <- $2: ${4}
-snippet message3
+snippet message_roundtrip_with_activate
 	${1} -> ${2}: ${3}
 	activate $1
 	$1 <-- $2: ${4}
 	deactivate $1
-snippet message3
+snippet message_with_refnote
 	${1} -> ${2}: ${4}
 	activate $1
 	... $2,  ${3:component}にアクセス有り \n url参照  ...
