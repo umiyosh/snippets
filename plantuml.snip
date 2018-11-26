@@ -20,9 +20,15 @@ snippet message2
 	$1 <- $2: ${4}
 snippet message3
 	${1} -> ${2}: ${3}
-	activate
+	activate $1
 	$1 <-- $2: ${4}
-	destroy
+	deactivate $1
+snippet message3
+	${1} -> ${2}: ${5}
+	activate $1
+	``` ${3} \n ${4} ```
+	$1 <-- $2: ${6}
+	deactivate $1
 
 snippet actor
 	actor ${1:actor}
