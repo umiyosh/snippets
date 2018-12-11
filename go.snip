@@ -447,6 +447,15 @@ abbr file, err := os.Open(...) ...
 		panic(err)
 	}
 
+snippet fprintln
+abbr file, err := os.OpenFile(...) ...
+	${2:file}, err := os.OpenFile("${1}", os.O_WRONLY|os.O_CREATE, ${3:0666})
+	if err != nil {
+		panic(err)
+	}
+	defer $2.Close()
+	fmt.Fprintln($2, $4)
+
 snippet bufioreadstring
 alias bufst
 abbr reader := bufio.NewReader(...) ...
