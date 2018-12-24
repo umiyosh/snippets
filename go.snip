@@ -442,6 +442,10 @@ abbr mux.HandleFunc(...)
   })
 
 # -----------------------------
+snippet breakpoint
+abbr runtime.Breakpoint()
+	runtime.Breakpoint()
+
 snippet open
 abbr file, err := os.Open(...) ...
 	${2:file}, err := os.Open("${1}")
