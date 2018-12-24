@@ -7,15 +7,18 @@ snippet golang
 		${3}
 	}
 # shorthand variable declaration
-snippet v
-	${1} := ${2}
-# variable initialization
-snippet vr
-	var ${1:t} ${0:string}
 # variable declaration
 snippet var
 abbr var x Type [= ...]
 	var ${1:x} ${2:Type}${3: = ${0:value\}}
+# variable inference
+snippet vari
+	abbr v [:= ...]
+	${1} := ${2}
+# variable initialization
+snippet varv
+	abbr v Type
+	var ${1:v} ${0:string}
 # variables declaration
 snippet vars
 abbr var ( ... )
@@ -306,8 +309,8 @@ options head
 		${0}
 	}
 # new
-snippet nw
-	new(${0:type})
+snippet new
+	${1} := new(${0:type})
 # package
 snippet package
 abbr package ...
