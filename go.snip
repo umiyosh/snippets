@@ -13,11 +13,11 @@ abbr var x Type [= ...]
 	var ${1:x} ${2:Type}${3: = ${0:value\}}
 # variable inference
 snippet vari
-	abbr v [:= ...]
+abbr v [:= ...]
 	${1} := ${2}
 # variable initialization
 snippet varv
-	abbr v Type
+abbr v Type
 	var ${1:v} ${0:string}
 # variables declaration
 snippet vars
@@ -123,8 +123,8 @@ abbr if ... { ... }
 		${0}
 	}
 # else snippet
-abbr else { ... }
 snippet else
+abbr else { ... }
 	else {
 		${0}
 	}
