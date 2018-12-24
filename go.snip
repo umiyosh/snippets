@@ -34,10 +34,10 @@ snippet ap=
 abbr slice = append(slice, value)
   ${1:slice} = append($1, ${0:value})
 # bool
-snippet bl
+snippet bo
 	bool
 # byte
-snippet bt
+snippet by
 	byte
 # break
 snippet br
@@ -62,7 +62,7 @@ alias con
 abbr const XXX Type = ...
 	const ${1:NAME} ${2:Type} = ${0:0}
 # constants
-snippet constt
+snippet consts
 alias cons
 abbr const ( ... )
 	const (
@@ -77,7 +77,7 @@ abbr const ( ... = iota )
 		${0}
 	)
 # continue
-snippet cn
+snippet con
 abbr continue
 	continue
 # defer
@@ -99,7 +99,7 @@ snippet defr
 	}()
 
 # int
-snippet i
+snippet int
 	int
 # import
 snippet import
@@ -108,7 +108,7 @@ abbr import ( ... )
 		"${1:package}"
 	)
 # interface
-snippet in
+snippet inte
 	interface{}
 # full interface snippet
 snippet interface
@@ -208,19 +208,19 @@ abbr if !ok { ... }
 		${0}
 	}
 # false
-snippet f
+snippet fa
 	false
 # fallthrough
-snippet ft
+snippet fallt
 	fallthrough
 # float
 snippet fl
 	float32
 # float32
-snippet f3
+snippet fl3
 	float32
 # float64
-snippet f6
+snippet fl6
 	float64
 # for loop
 snippet for
@@ -322,11 +322,11 @@ alias pn
 abbr panic("...")
 	panic("${0:msg}")
 # range
-snippet rn
+snippet ran
 	range ${0}
 # return
 snippet return
-alias rt
+alias ret
 abbr return ...
 	return ${0}
 # result
@@ -345,7 +345,7 @@ abbr select { case a := <-chan: ... }
 		${0}
 	}
 # string
-snippet sr
+snippet str
 	string
 # struct
 snippet type
@@ -370,7 +370,7 @@ abbr switch x { ... }
 		${0}
 	}
 # true
-snippet t
+snippet tr
 	true
 # goroutine named function
 snippet go
