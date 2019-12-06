@@ -182,7 +182,7 @@ snippet     readstdin
 snippet     readline
     with open('${1:/path/to}') as ${2:file}::
         for ${3:line} in $2:
-           ${4:print line}
+           ${4:print(line)}
 
 # Lambda
 snippet ld
@@ -211,7 +211,7 @@ snippet getopt
 		opts, args = getopt.getopt(sys.argv[1:], "${1:short_options}", [${2:long_options}])
 	except getopt.GetoptError, err:
 		# Print debug info
-		print str(err)
+		print(str(err))
 		${3:error_action}
 	for option, argument in opts:
 		if option in ("-h", "--help"):
