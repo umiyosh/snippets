@@ -260,6 +260,11 @@ abbr fn := func() { ... }
 	${1:fn} := func() {
 		${0}
 	}
+snippet funcanon2
+abbr func() { ... }()
+	func(${0}) {
+		${2}
+	}(${1})
 # print
 snippet fmtpf
 abbr fmt.Printf(...)
