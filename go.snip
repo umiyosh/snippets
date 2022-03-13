@@ -109,6 +109,7 @@ abbr import ( ... )
 	)
 # interface
 snippet inte
+abbr interface{}
 	interface{}
 # full interface snippet
 snippet interface
@@ -352,8 +353,12 @@ abbr select { case a := <-chan: ... }
 # string
 snippet str
 	string
-# struct
+# type
 snippet type
+abbr type T
+	type ${1:name} ${2:Type}
+# struct
+snippet types
 abbr type T struct { ... }
 	type ${1:Type} struct {
 		${0}
