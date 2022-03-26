@@ -190,6 +190,12 @@ abbr if err != nil { return [...], err }
 	${0}
 # error snippet handle and return
 snippet ifr
+abbr if err != nil { ... }
+	if err != nil {
+		${0}
+	}
+# error snippet handle and return
+snippet ifrr
 abbr if err != nil { ... return }
 	if err != nil {
 		${1}
@@ -308,7 +314,7 @@ abbr makechan
 snippet map
 abbr map[Type]Type
 	map[${1:string}]${0:int}
-snippet main
+snippet funcmain
 abbr func main() { ... }
 options head
 	func main() {
@@ -343,9 +349,9 @@ snippet select
 alias sl
 abbr select { case a := <-chan: ... }
 	select {
-	case ${1:v1} := <-${2:chan1}
+	case ${1:v1 := } <-${2:chan1}
 		${3}
-	case ${4:v2} := <-${5:chan2}
+	case ${4:v2 := } <-${5:chan2}
 		${6}
 	default:
 		${0}
@@ -392,6 +398,9 @@ abbr go func(...) { ... }(...)
 	go func(${1} ${2:type}) {
 		${3:/* code */}
 	}(${0})
+snippet gof2
+abbr go func(){...}()
+	go func(){${0}}()
 snippet test
 abbr func TestXYZ(t *testing.T) { ... }
 	func Test${1:name}(t *testing.T) {
