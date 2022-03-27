@@ -301,16 +301,16 @@ abbr log.Println(...)
 	log.Println(${1})
 # make
 snippet make
-abbr make(Type, size)
-	make(${1:[]string}, ${2:0})${0}
+abbr make(Type, size[, cap])
+	make(${1:[]string}${2:, 0}${3:, 0})
 # makemap
 snippet makemap
 abbr make(map[string]int, size)
-	make(map[${1:string}]${0:int}, ${3:0})${4}
+	make(map[${1:string}]${0:int}${3:, 0})
 # makechan
 snippet makechan
 abbr make(chan int, size)
-	make(chan ${0:int}${1:, size})
+	make(chan ${0:int}${1:, 0})
 snippet map
 abbr map[Type]Type
 	map[${1:string}]${0:int}
@@ -424,8 +424,6 @@ abbr if err != nil { t.Fatalf(...) }
 # test server
 snippet testserver
 snippet tsrv
-abbr ts := httptest.NewServer(...)
-  ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintln(w, ${1:`response`})
   }))
   defer ts.Close()
