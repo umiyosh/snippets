@@ -305,11 +305,11 @@ abbr make(Type, size)
 	make(${1:[]string}, ${2:0})${0}
 # makemap
 snippet makemap
-abbr make(Type, size)
+abbr make(map[string]int, size)
 	make(map[${1:string}]${0:int}, ${3:0})${4}
 # makechan
 snippet makechan
-abbr makechan
+abbr make(chan int, size)
 	make(chan ${0:int}${1:, size})
 snippet map
 abbr map[Type]Type
